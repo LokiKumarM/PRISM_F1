@@ -42,17 +42,13 @@ PRISM-F1 forces every pit decision to flow through six named, human-readable
 concepts. A pit-wall engineer can read the output and immediately understand
 *why* the model said what it said.
 
-    input features (13)
+  input features (13)
           │
           ▼
-┌──────────────────────────┐
-│  Concept Block (MLP)     │  ──► 6 interpretable concepts in [0, 1]
-└──────────────────────────┘
+  Concept Block (MLP)      ──► 6 interpretable concepts in [0, 1]
           │
           ▼
-┌──────────────────────────┐
-│  Decision Block (Linear) │  ──► pit probability
-└──────────────────────────┘
+  Decision Block (Linear)  ──► pit probability
 
 ### The six concepts
 
