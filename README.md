@@ -10,10 +10,9 @@ plain-English strategist-style explanation for every prediction.
 ---
 
 ## What's in this repo
-.
-├── notebooks/
-│   ├── 01_data_exploration.ipynb       # Data inspection, feature engineering, concept GT
-│   ├── 02_blocks_and_stage1.ipynb      # Model blocks + Stage 1 training (Reader+Imagination)
+
+01_data_exploration.ipynb   -    # Data inspection, feature engineering, concept GT
+02_blocks_and_stage1.ipynb      # Model blocks + Stage 1 training (Reader+Imagination)
 │   ├── 03_stage2_concepts.ipynb         # Stage 2: Concept Block training (frozen Reader)
 │   ├── 04_stage3_decision.ipynb         # Stage 3: Decision Block training (frozen above)
 │   ├── 05_inference_submission.ipynb    # Inference + Kaggle submission (staged model)
