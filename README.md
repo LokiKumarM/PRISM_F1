@@ -185,23 +185,6 @@ The joint model fits comfortably in INT8 quantization on an STM32-class MCU.
 
 ---
 
-## What this is part of
-
-PRISM is an architectural family being developed at CelesticLabs for
-interpretable embedded AI in safety-critical domains: automotive sensor
-interpretation, defence platforms, industrial IoT. PRISM-F1 is one
-demonstration of the family pattern — the principle of forcing decisions
-through named, interpretable concepts with exact attribution.
-
-Future variants under development:
-- **PRISM-Race** (extending this work) — temporal concept windows, online
-  inference on streaming F1 telemetry
-- **PRISM-Battery** — battery state-of-health monitoring from voltage,
-  current, and temperature streams
-- **PRISM-MSAS** — maritime security analytics from radar and AIS fusion
-
----
-
 ## Honest acknowledgements
 
 - The original staged design was over-engineered for this task. The repo
