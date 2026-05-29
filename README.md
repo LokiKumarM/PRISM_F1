@@ -11,25 +11,25 @@ plain-English strategist-style explanation for every prediction.
 
 ## What's in this repo
 
-├── notebooks/
+├── notebooks/  
 │   ├── 01_data_exploration.ipynb        # Data inspection, feature engineering, concept GT  
-│   ├── 02_blocks_and_stage1.ipynb       # Model blocks + Stage 1 training (Reader+Imagination)
-│   ├── 03_stage2_concepts.ipynb         # Stage 2: Concept Block training (frozen Reader)
-│   ├── 04_stage3_decision.ipynb         # Stage 3: Decision Block training (frozen above)
-│   ├── 05_inference_submission.ipynb    # Inference + Kaggle submission (staged model)
-│   ├── 06_joint_training_experiment.ipynb   # Reviewer's critique: joint vs staged
-│   ├── 07_joint_inference_submission.ipynb  # Joint model inference + submission
-│   └── 08_inference_with_reasoning.ipynb    # Per-row reasoning generation
-├── outputs/
-│   ├── submission.csv                   # Staged model (0.70 public AUC)
-│   ├── submission_joint_lambda20.csv    # Joint model λ=20 (0.909 public AUC)
-│   ├── audit_trail_demo.md              # 5 worked examples with full attribution
-│   ├── demo_predictions_v2.md           # 80 stratified predictions with plain-English reasoning
-│   └── lambda_ablation_results.csv      # Full Pareto-curve data
-├── docs/
-│   └── PRISM_F1_Architecture.md         # The architecture specification
-├── .gitignore
-└── README.md
+│   ├── 02_blocks_and_stage1.ipynb       # Model blocks + Stage 1 training (Reader+Imagination)  
+│   ├── 03_stage2_concepts.ipynb         # Stage 2: Concept Block training (frozen Reader)  
+│   ├── 04_stage3_decision.ipynb         # Stage 3: Decision Block training (frozen above)  
+│   ├── 05_inference_submission.ipynb    # Inference + Kaggle submission (staged model)  
+│   ├── 06_joint_training_experiment.ipynb   # Reviewer's critique: joint vs staged  
+│   ├── 07_joint_inference_submission.ipynb  # Joint model inference + submission  
+│   └── 08_inference_with_reasoning.ipynb    # Per-row reasoning generation  
+├── outputs/  
+│   ├── submission.csv                   # Staged model (0.70 public AUC)  
+│   ├── submission_joint_lambda20.csv    # Joint model λ=20 (0.909 public AUC)  
+│   ├── audit_trail_demo.md              # 5 worked examples with full attribution  
+│   ├── demo_predictions_v2.md           # 80 stratified predictions with plain-English reasoning  
+│   └── lambda_ablation_results.csv      # Full Pareto-curve data  
+├── docs/  
+│   └── PRISM_F1_Architecture.md         # The architecture specification  
+├── .gitignore  
+└── README.md  
 
 Data files (`data/*.csv`, `data/*.pkl`) and model checkpoints (`checkpoints/*.pt`)
 are not committed due to size. See [Reproducing the results](#reproducing-the-results).
@@ -41,8 +41,18 @@ are not committed due to size. See [Reproducing the results](#reproducing-the-re
 PRISM-F1 forces every pit decision to flow through six named, human-readable
 concepts. A pit-wall engineer can read the output and immediately understand
 *why* the model said what it said.
-
-input features (13) ->  Concept Block (MLP: 6 interpretable concepts in [0, 1]) ->  Decision Block (Linear: pit probability)   
+  
+                  input features (13)
+                          │  
+                          ▼  
+              ┌──────────────────────────┐  
+              │  Concept Block (MLP)     │  ──► 6 interpretable concepts in [0, 1]  
+              └──────────────────────────┘  
+                          │  
+                          ▼  
+              ┌──────────────────────────┐  
+              │  Decision Block (Linear) │  ──► pit probability  
+              └──────────────────────────┘  
                                        
 
 ### The six concepts
@@ -57,7 +67,8 @@ input features (13) ->  Concept Block (MLP: 6 interpretable concepts in [0, 1]) 
 | `endgame_proximity` | Whether the race is too close to finished to recover the pit cost |
 
 Because the Decision Block is linear, every prediction has an exact additive
-decomposition:
+decomposition:  
+
 logit = w₁·c₁ + w₂·c₂ + ... + w₆·c₆ + bias
 
 You can attribute the decision to specific concept contributions, in seconds,
