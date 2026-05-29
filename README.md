@@ -77,16 +77,16 @@ with no SHAP or LIME wrapper required.
 
 ## Example: a real prediction from the test set
 
-Driver: HAM, Monaco Grand Prix 2024, Lap 45 (RaceProgress 0.58)
-Compound: MEDIUM, TyreLife: 51, Position: P5
-Concepts (model output):
-degradation_severity   0.99   ████████████████████
-pace_decay_rate        0.01
-strategic_window       0.02
-track_position_risk    0.89   █████████████████
-undercut_pressure      0.99   ████████████████████
-endgame_proximity      0.04
-Decision: PIT (probability 99.4%)
+Driver: HAM, Monaco Grand Prix 2024, Lap 45 (RaceProgress 0.58)  
+Compound: MEDIUM, TyreLife: 51, Position: P5  
+Concepts (model output):  
+degradation_severity   0.99   ████████████████████  
+pace_decay_rate        0.01  
+strategic_window       0.02  
+track_position_risk    0.89   █████████████████  
+undercut_pressure      0.99   ████████████████████  
+endgame_proximity      0.04  
+Decision: PIT (probability 99.4%)  
 Reasoning:
 "The tyres are deep into their wear phase, and another few laps at racing
 pace risks a sharp drop-off and lost lap time — the call is to pit. On top
