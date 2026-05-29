@@ -20,10 +20,9 @@ plain-English strategist-style explanation for every prediction.
 │   ├── 06_joint_training_experiment.ipynb   # Reviewer's critique: joint vs staged  
 │   ├── 07_joint_inference_submission.ipynb  # Joint model inference + submission  
 │   └── 08_inference_with_reasoning.ipynb    # Per-row reasoning generation  
-├── outputs/  
+├── output/  
 │   ├── submission.csv                   # Staged model (0.70 public AUC)  
 │   ├── submission_joint_lambda20.csv    # Joint model λ=20 (0.909 public AUC)  
-│   ├── audit_trail_demo.md              # 5 worked examples with full attribution  
 │   ├── demo_predictions_v2.md           # 80 stratified predictions with plain-English reasoning  
 │   └── lambda_ablation_results.csv      # Full Pareto-curve data  
 ├── docs/  
